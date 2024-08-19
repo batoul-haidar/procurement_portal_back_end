@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <resource-ref>
+        <res-ref-name>jdbc/procurement_porat</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+        <res-sharing-scope>Shareable</res-sharing-scope>
+    </resource-ref>
+    <filter>
+        <filter-name>CorsFilter</filter-name>
+        <filter-class>com.univaq.procurement_portal_back_end.resources.CorsFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CorsFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+  <!-- 
+    <filter>
+    <filter-name>httpsRedirectFilter</filter-name>
+    <filter-class>com.univaq.procurement_portal_back_end.resources.HTTPSRedirectFilter</filter-class>
+</filter>
+<filter-mapping>
+    <filter-name>httpsRedirectFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
+ 
+<security-constraint>
+    <web-resource-collection>
+        <web-resource-name>Entire Application</web-resource-name>
+        <url-pattern>/*</url-pattern>
+    </web-resource-collection>
+    <user-data-constraint>
+        <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+    </user-data-constraint>
+</security-constraint>
+
+-->
+    <!-- 
+    <filter>
+        <filter-name>jwtSessionFilter</filter-name>
+        <filter-class>com.univaq.procurement_portal_back_end.security.JwtSessionFilter</filter-class>
+    </filter>
+
+    <filter-mapping>   
+        <filter-name>jwtSessionFilter</filter-name>   
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+-->
+    <!-- Servlets -->
+    <servlet>
+        <servlet-name>ListCategoriesServlet</servlet-name>
+        <servlet-class>com.univaq.procurement_portal_back_end.controller.ListCategoriesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListProductTypesServlet</servlet-name>
+        <servlet-class>com.univaq.procurement_portal_back_end.controller.ListProductTypesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListProductsServlet</servlet-name>
+        <servlet-class>com.univaq.procurement_portal_back_end.controller.ListProductsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListFeaturesServlet</servlet-name>
+        <servlet-class>com.univaq.procurement_portal_back_end.controller.ListFeaturesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MakeRequestServlet</servlet-name>
+        <servlet-class>com.univaq.procurement_portal_back_end.controller.MakeRequestServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListNewPurchaseReqsServlet</servlet-name>
+        <servlet-class>com.univaq.procurement_portal_back_end.controller.ListNewPurchaseReqsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addUserServlet</servlet-name>
+        <servlet-class>com.univaq.procurement_portal_back_end.controller.AddUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.univaq.procurement_portal_back_end.controller.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>com.univaq.procurement_portal_back_end.controller.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListAllUsersServlet</servlet-name>
+        <servlet-class>com.univaq.procurement_portal_back_end.controller.ListAllUsersServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updateUserServlet</servlet-name>
+        <servlet-class>com.univaq.procurement_portal_back_end.controller.updateUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <servlet-class>com.univaq.procurement_portal_back_end.controller.DeleteUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditPasswordServlet</servlet-name>
+        <servlet-class>com.univaq.procurement_portal_back_end.controller.EditPasswordServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListRequestsByPurchaser</servlet-name>
+        <servlet-class>com.univaq.procurement_portal_back_end.controller.ListRequestsByPurchaser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListRequestsByTechnician</servlet-name>
+        <servlet-class>com.univaq.procurement_portal_back_end.controller.ListRequestsByTechnician</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ApproveRequestByTechServlet</servlet-name>
+        <servlet-class>com.univaq.procurement_portal_back_end.controller.ApproveRequestByTechServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MakeProposaServlet</servlet-name>
+        <servlet-class>com.univaq.procurement_portal_back_end.controller.MakeProposaServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>AddProposalImagesServlet</servlet-name>
+        <servlet-class>com.univaq.procurement_portal_back_end.controller.AddProposalImagesServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>getProposalServlet</servlet-name>
+        <servlet-class>com.univaq.procurement_portal_back_end.controller.getProposalServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ApproveProposalServlet</servlet-name>
+        <servlet-class>com.univaq.procurement_portal_back_end.controller.ApproveProposalServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>CloseRequestServlet</servlet-name>
+        <servlet-class>com.univaq.procurement_portal_back_end.controller.CloseRequestServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>RejectProposalServlet</servlet-name>
+        <servlet-class>com.univaq.procurement_portal_back_end.controller.RejectProposalServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>GetRejectedProposalServlet</servlet-name>
+        <servlet-class>com.univaq.procurement_portal_back_end.controller.GetRejectedProposalServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>ListHistoryByTechnicianServlet</servlet-name>
+        <servlet-class>com.univaq.procurement_portal_back_end.controller.ListHistoryByTechnicianServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>ListHistoryByPurchaserServlet</servlet-name>
+        <servlet-class>com.univaq.procurement_portal_back_end.controller.ListHistoryByPurchaserServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>NotificationServlet</servlet-name>
+        <servlet-class>com.univaq.procurement_portal_back_end.controller.NotificationServlet</servlet-class>
+    </servlet>
+    
+
+    
+    <!-- Servlets Mapping -->
+    <servlet-mapping>
+        <servlet-name>ListCategoriesServlet</servlet-name>
+        <url-pattern>/api/categories</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListProductTypesServlet</servlet-name>
+        <url-pattern>/api/productTypes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListProductsServlet</servlet-name>
+        <url-pattern>/api/products</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListFeaturesServlet</servlet-name>
+        <url-pattern>/api/features</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MakeRequestServlet</servlet-name>
+        <url-pattern>/api/makeRequest</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListNewPurchaseReqsServlet</servlet-name>
+        <url-pattern>/api/listNewRequests</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addUserServlet</servlet-name>
+        <url-pattern>/api/addUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/api/login</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/api/logout</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>ListAllUsersServlet</servlet-name>
+        <url-pattern>/api/listAllUsers</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateUserServlet</servlet-name>
+        <url-pattern>/api/updateUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <url-pattern>/api/deleteUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditPasswordServlet</servlet-name>
+        <url-pattern>/api/editPassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListRequestsByPurchaser</servlet-name>
+        <url-pattern>/api/requestsByPurchaser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListRequestsByTechnician</servlet-name>
+        <url-pattern>/api/requestsByTechnician</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet-mapping>
+        <servlet-name>ApproveRequestByTechServlet</servlet-name>
+        <url-pattern>/api/approveReqByTech</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>MakeProposaServlet</servlet-name>
+        <url-pattern>/api/makeProposal</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>AddProposalImagesServlet</servlet-name>
+        <url-pattern>/api/addImages</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>getProposalServlet</servlet-name>
+        <url-pattern>/api/getProposal</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>ApproveProposalServlet</servlet-name>
+        <url-pattern>/api/approveProposal</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>CloseRequestServlet</servlet-name>
+        <url-pattern>/api/closeRequest</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>RejectProposalServlet</servlet-name>
+        <url-pattern>/api/rejectProposal</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>GetRejectedProposalServlet</servlet-name>
+        <url-pattern>/api/getRejectedProposal</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>ListHistoryByTechnicianServlet</servlet-name>
+        <url-pattern>/api/listHistoryByTechnician</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>ListHistoryByPurchaserServlet</servlet-name>
+        <url-pattern>/api/listHistoryByPurchaser</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>NotificationServlet</servlet-name>
+        <url-pattern>/api/notificationServlet</url-pattern>
+    </servlet-mapping>
+    
+    
+</web-app>
